@@ -13,11 +13,11 @@ spec:
       maxUnavailable: 10%
   selector:
     matchLabels:
-      app: app-service-mesh-v2
+      app: app-service-mesh
   template:
     metadata:
       labels:
-        app: app-service-mesh-v2
+        app: app-service-mesh
         version: V2
     spec:
       containers:

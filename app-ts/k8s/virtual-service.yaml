@@ -12,8 +12,8 @@ spec:
       - destination:
           host: app-service-mesh-svc
           subset: V1
-        weight: 80
+        weight: 50
       - destination:
           host: app-service-mesh-svc
           subset: V2
-        weight: 20
+        weight: 50
