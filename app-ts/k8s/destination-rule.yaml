@@ -9,7 +9,7 @@ spec:
   subsets: 
   - name: V1
     labels:
-      app: app-service-mesh
+      version: V1
   - name: V2
     labels:
-      app: app-service-mesh
+      version: V2
