@@ -6,14 +6,31 @@ metadata:
 
 spec:
   hosts:
-  - app-service-mesh-svc
+  - app-service-mesh-svc.app.svc.cluster.local
   http:
-    - routes:
+  - name: "app-service-mesh-v2"
+    match:
+    - uri:
+        prefix: "/teste"
+    - uri:
+        prefix: "/teste-2"
+    rewrite:
+      uri: "/healthz"
+    route:
       - destination:
-          host: app-service-mesh-svc
-          subset: V1
-        weight: 50
-      - destination:
-          host: app-service-mesh-svc
-          subset: V2
-        weight: 50
+        host: pp-service-mesh-svc.app.svc.cluster.local
+        subset: V2
+  - name: "app-service-mesh-v1"
+    route:
+    - destination:
+        host: pp-service-mesh-svc.app.svc.cluster.local
+        subset: V1
+    # - routes:
+    #   - destination:
+    #       host: app-service-mesh-svc.app.svc.cluster.local
+    #       subset: V1
+    #     weight: 50
+    #   - destination:
+    #       host: app-service-mesh-svc.app.svc.cluster.local
+    #       subset: V2
+    #     weight: 50
