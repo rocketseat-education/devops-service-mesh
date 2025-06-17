@@ -5,11 +5,11 @@ metadata:
   name: app-service-mesh-gateway
 
 spec:
-  gatewayClassName: istio
+  gatewayClassName: istio-waypoint
   listeners:
-  - name: http
-    port: 80
-    protocol: HTTP
+  - name: mesh
+    port: 15008
+    protocol: HBONE
     allowedRoutes:
       namespaces:
         from: Same
